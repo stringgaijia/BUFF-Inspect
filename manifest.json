@@ -1,0 +1,19 @@
+{
+	"name": "BUFF Inspect",
+	"description": "This extension allows you to generate inspection commands for server such as Broskin directly on BUFF",
+	"version": "0.2.2",
+	"manifest_version": 2,
+	"background": {
+	    "scripts":["background.js"]
+	  },
+	"content_scripts": [
+		{
+			"matches": ["https://buff.163.com/goods/*"],
+			"css": ["style.css"],
+			"js": ["buff_broskin.js"]
+		}
+	],
+	"permissions": [
+	    "tabs"
+	]
+}

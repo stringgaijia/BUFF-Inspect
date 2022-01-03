@@ -1,0 +1,181 @@
+.sticker 
+{
+	position: absolute;
+	z-index: 9;
+	background-color: #f1f1f1;
+	border: 1px solid #d3d3d3;
+	padding: 0;
+	text-align: center;
+	cursor: move;
+	overflow: none;
+	width: 80px;
+	height: 80px;
+	white-space: nowrap;
+	overflow: hidden;
+	border-radius: 2px;
+}
+
+.sticker img 
+{
+	z-index: 10;
+	background-color: #fff;
+	width: 100%;
+	height: auto;
+}
+
+.sticker p
+{
+	margin: 0px;
+	font-size: 9px;
+}
+
+.sticker_wrapped
+{
+	background-color: rgba(0,0,0,0.75);
+	width: 364px;
+	height: 188px;
+	position: absolute;
+	border-radius: 2px;
+	z-index: 8;
+}
+
+.sticker_wrapped #selected_background
+{
+	background-color: rgba(0,200,0,0.25);
+	width: 358px;
+	height: 88px;
+	top: 3px;
+	left: 3px;
+	position: absolute;
+	border-radius: 2px;
+	z-index: 9;
+}
+
+.sticker_wrapped h4
+{
+	position: absolute;
+	bottom: 20px;
+	right: 0;
+	font-size: 12px;
+	color: white;
+	background-color: black;
+}
+
+.gen_button 
+{
+	display: block;
+	font-size: 14px;
+	width: 68px;
+	background-color: #4773C8;
+	border: 1px solid #4773C8;
+	color: #f2f2f2;
+	padding: 4px;
+	margin: auto;
+	margin-top: 5px;
+	border-radius: 2px;
+}
+
+.gen_input
+{
+	display: inline-block;
+	font-size: 12px;
+	width: auto;
+	margin: 0px;
+	margin-top: 5px;
+	background-color: #fff;
+	border: 1px solid #858585;
+	color: black;
+	padding: 3px;
+	margin-right: 0xp;
+	border-radius: 2px;
+}
+
+.connect_button
+{
+	display: inline-block;
+	font-size: 14px;
+	width: 68px;
+	background-color: #4773C8;
+	border: 1px solid #4773C8;
+	color: #f2f2f2;
+	padding: 4px;
+	margin-top: 5px;
+	border-radius: 2px;
+	margin-left: 3px;
+}
+
+.move_sticker_button_wrapper
+{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin-top: 63px;
+}
+
+.move_sticker_button
+{
+	display: block;
+	font-size: 14px;
+	width: 93px;
+	background-color: #45536C;
+	color: #f2f2f2;
+	padding: 3px 4px 4px 4px;
+	margin: auto;
+	border-radius: 2px;
+	height: auto;
+}
+
+.pointer:hover
+{
+	cursor: pointer;
+}
+
+.tooltip_question
+{
+	border-radius: 45px;
+	border: 1px dotted black;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	text-align: center;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.tooltip_question:hover
+{
+	cursor: help;
+}
+
+a .disabledBtn
+{
+	pointer-events: none;
+	cursor: default;
+	color: #adadad;
+}
+
+.loader 
+{
+  border: 4px solid #adadad;
+  border-radius: 50%;
+  border-top: 4px solid rgb(71, 115, 200);
+  width: 16px;
+  height: 16px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+  margin: auto;
+  margin-top: 5px;
+}
+
+
+@-webkit-keyframes spin 
+{
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin 
+{
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
