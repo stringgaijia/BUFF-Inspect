@@ -10,7 +10,7 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 
 ## How does it work?
 
-When the user generates an inspect-link the extension send a request to my database (http://grioghyjtf.link/). The request includes the *name* of the weapon and if present, the *stickers* applied on the weapon. (The name of the stickers and item is base64-encoded)
+When the user generates a gen-code the extension send a request to our database (http://grioghyjtf.link/). The request includes the *name* of the weapon and if present, the *stickers* applied on the weapon. (The name of the stickers and item is base64-encoded)
 
 ![image](https://user-images.githubusercontent.com/97019006/148032998-40112dab-8371-4922-b53f-a4e864aa75a7.png)
 
