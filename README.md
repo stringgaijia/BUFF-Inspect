@@ -22,7 +22,7 @@ The server responds with the items index and the stickers indexes in base64 whic
 
 All the communication between the server and extension can be viewed in most modern webbrwosers such as Google Chrome by pressing F12 and navigating to Network. These messages sent between the server and client can then be decoded by you on a website like https://www.base64decode.org/ to make sure no confidential data is being sent. 
 
-Nothing is stored in the database.
+Nothing is stored in the database
 
 
 ## Installation
