@@ -11,12 +11,10 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 - Add/remove stickers from weapon
 
 ## Features
-
 - Generate gencodes for CSGO
-- Move sticker positions
+- Inspecting a weapon with stickers
 
 ## How does it work?
-
 When the user generates a gen-code the extension send a request to our database (http://grioghyjtf.link/). The request includes the *name* of the weapon and if present, the *stickers* applied to the weapon. (The name of the item and stickers are encoded in base64)
 
 ![image](https://user-images.githubusercontent.com/97019006/148032998-40112dab-8371-4922-b53f-a4e864aa75a7.png)
