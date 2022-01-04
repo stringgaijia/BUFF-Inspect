@@ -5,6 +5,12 @@ let weird_orders = [4, 16, 39, 60];
 var all_btns = [];
 var disable_move_btn = {};
 
+var servers = {
+	"Broskin": "51.75.73.121:27015",
+	"ohnePixel Nuke": "23.88.121.140:27015",
+	"ohnePixel Siege": "23.88.37.66:27015"
+}
+
 
 function get_class_from_id(id)
 {
@@ -41,6 +47,20 @@ function get_http(url)
 	xmlHttp.open("GET", url, false);
     xmlHttp.send(null);
     return xmlHttp.responseText;
+}
+
+function connect_to_server()
+{
+	chrome.storage.sync.get("serverIndex", function(serverIndex)
+	{
+		var sid = 0;
+		if(serverIndex.serverIndex)
+		{
+			sid = serverIndex.serverIndex;
+		}
+		var values = Object.keys(servers).map(function(key){return servers[key];});
+		window.location.href='steam://' + values[sid];
+	});
 }
 
 async function http_get(classid, instanceid, sell_order_id, assetid)
@@ -249,7 +269,7 @@ class GenCode
 		input.id = "input-gen-" + i;
 		input.classList.add("connect_button");
 		input.classList.add("pointer");
-		input.onclick = function(){window.location.href='steam://connect/51.75.73.121:27015'};
+		input.onclick = function(){connect_to_server();};
 		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(input);
 
 		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(document.createElement("br"));
@@ -530,13 +550,12 @@ function loadButtons()
 	}
 }
 
-
 function load_extension()
 {
 	loadButtons();
 	chrome.runtime.onMessage.addListener(
 	  	function(request, sender, sendResponse) {
-	    	if (request.message === 'urlChange') 
+	    	if (request.message === 'urlChange')
 	    	{
 	      		loadButtons();
 	    	}
