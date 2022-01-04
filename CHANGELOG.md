@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Users can now pick which server they want to connect to
+- Added a logo
+- Popup when pressing Extension Logo
 
 ### Fixed
 - Added Battlefield 2042 stickers
