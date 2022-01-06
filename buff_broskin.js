@@ -5,11 +5,6 @@ let weird_orders = [4, 16, 39, 60];
 var all_btns = [];
 var disable_move_btn = {};
 
-var servers = {
-	"Broskin": "51.75.73.121:27015",
-	"ohnePixel Nuke": "23.88.121.140:27015",
-	"ohnePixel Siege": "23.88.37.66:27015"
-}
 
 
 function get_class_from_id(id)
@@ -47,20 +42,6 @@ function get_http(url)
 	xmlHttp.open("GET", url, false);
     xmlHttp.send(null);
     return xmlHttp.responseText;
-}
-
-function connect_to_server()
-{
-	chrome.storage.sync.get("serverIndex", function(serverIndex)
-	{
-		var sid = 0;
-		if(serverIndex.serverIndex)
-		{
-			sid = serverIndex.serverIndex;
-		}
-		var values = Object.keys(servers).map(function(key){return servers[key];});
-		window.location.href='steam://' + values[sid];
-	});
 }
 
 async function http_get(classid, instanceid, sell_order_id, assetid)
@@ -192,9 +173,14 @@ class GenCode
 {
 	constructor(id, sells)
 	{
+		this.saved_original = false;
 		this.id = id;
 		this.add_input_btn(sells);
 		this.sticker_slots = {
+			0: null, 1: null, 2: null, 3:null,
+			4: null, 5: null, 6: null, 7:null
+		};
+		this.orig_sticker_slots = {
 			0: null, 1: null, 2: null, 3:null,
 			4: null, 5: null, 6: null, 7:null
 		};
@@ -263,14 +249,16 @@ class GenCode
 		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(input);
 		sells[i].getElementsByClassName("t_Left")[0].style.height = "auto";
 
-		var input = document.createElement("input");
-		input.type = "submit";
-		input.value = "Connect";
-		input.id = "input-gen-" + i;
-		input.classList.add("connect_button");
-		input.classList.add("pointer");
-		input.onclick = function(){connect_to_server();};
-		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(input);
+		var floatDB = document.createElement("input");
+		floatDB.type = "submit";
+		floatDB.value = "FloatDB Search"
+		floatDB.classList.add("connect_button");
+		floatDB.classList.add("pointer");
+		floatDB.classList.add("float_search_button");
+		var gen_data_array = gen_data.split(" ");
+		floatDB.onclick = function() {window.open("https://csgofloat.com/db?&defIndex=" + gen_data_array[1] + "&paintIndex=" + gen_data_array[2] + "&paintSeed=" + gen_data_array[3] + "&min=" + gen_data_array[4] + "&max=" + gen_data_array[4], "_blank")};
+		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(floatDB);
+
 
 		sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].appendChild(document.createElement("br"));
 
@@ -315,6 +303,7 @@ class GenCode
 			sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_sticker")[0].style.width = "164px";
 			sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_sticker")[0].appendChild(move_sticker_wrapper);
 			move_sticker_wrapper.appendChild(a);
+
 		}
 
 		disable_all_move_stickers(false);
@@ -325,7 +314,7 @@ class GenCode
 	{
 		var has_stickers = false;
 		var sticker_data = data.split('sticker-wrapper');
-		var sticker_placement = '<div class="sticker_wrapped" style="display:none;"><div id="selected_background"></div>';
+		var sticker_placement = '<div class="sticker_wrapped" style="display:none;"><div id="selected_background"></div>'; // <button class="pointer reset_button" id="reset_sticker_pos" title="Reset sticker positions">↩</button>
 		var sticker_ids = "";
 		var sticker_names = [];
 		for(var i = sticker_data.length - 1; i > 0; i--)
@@ -346,7 +335,7 @@ class GenCode
 			var sticker_id = atob(await make_request("https://grioghyjtf.link/request.php?sticker_name=" + sticker_ids)).split(";");
 			for(var i = 0; i < sticker_names.length; i++)
 			{
-				cached_stickers[sticker_names[i].replace(";", "")] = sticker_id[i];
+				cached_stickers[sticker_names[i].replace("&amp;", "&").replace("&#39;", "'").replace(";", "")] = sticker_id[i];
 			}
 		}
 		
@@ -368,6 +357,25 @@ class GenCode
 				sticker_wear_value_gen[c] = sticker_wear;
 				c += 1;
 			}
+			/*document.getElementById("reset_sticker_pos").onclick = function(){
+				gen_code_class.sticker_slots = gen_code_class.orig_sticker_slots;
+				var values = Object.keys(gen_code_class.sticker_slots).map(function(key){return gen_code_class.sticker_slots[key];});
+				var stickers = document.getElementById(gen_code_class.id).parentElement.getElementsByClassName("sticker_wrapped")[0];
+				if(stickers != null)
+				{
+					console.log(values);
+					stickers = stickers.getElementsByTagName("div");
+					for(var i = 0; i < stickers.length; i++)
+					{
+						if(stickers[i].id != "selected_background")
+						{
+							//stickers[i].style.left = gen_code_class.sticker_slot_position[values.indexOf(stickers[i].id)][0] + gen_code_class.sticker_div_center_pos[0] + 1 + "px";
+					    	//stickers[i].style.top = gen_code_class.sticker_slot_position[values.indexOf(stickers[i].id)][1] + "px";
+					    	//stickers[i].style.zIndex = "10";
+						}
+					}
+				}
+			};*/
 		}
 		
 		return [await get_gen_code(data, has_stickers, sticker_slots_gen, true, sticker_wear_value_gen), has_stickers];
@@ -520,7 +528,6 @@ class GenCode
     	elmnt.style.top = gen_code_class.sticker_slot_position[num][1] + "px";
     	elmnt.style.zIndex = "10";
 
-	    
 	    document.onmouseup = null;
 	    document.onmousemove = null;
 
@@ -552,6 +559,18 @@ function loadButtons()
 
 function load_extension()
 {
+	chrome.runtime.onMessage.addListener(
+	  	function(request, sender, sendResponse) {
+	    	if(request.includes("connectToServerBuffInspect_steam://connect/"))
+	    	{
+	    		if(request.split("_").length == 2)
+	    		{
+	    			window.location.href = request.split("_")[1];
+	    		}
+	    	}
+		}
+	);
+
 	loadButtons();
 	chrome.runtime.onMessage.addListener(
 	  	function(request, sender, sendResponse) {
