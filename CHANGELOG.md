@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Connect button not working
 - Connect sometimes connected to the wrong server
 - Fixed "Don't Worry, I'm Pro" sticker
+- Minor bug fixes
 
  
 ## [1.0.1] - 2022-01-04
