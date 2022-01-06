@@ -14,17 +14,45 @@ for (const [name, ip] of Object.entries(servers))
 	select.add(option, null);
 }
 
+function setServer(serverIp)
+{
+	var ipText = document.getElementById("ip-text");
+	ipText.innerHTML = serverIp;
+}
+
+function connect()
+{
+	var sid = 0;
+	chrome.storage.sync.get("serverIndex", function(serverIndex)
+	{
+		if(serverIndex.serverIndex)
+		{
+			sid = serverIndex.serverIndex;
+		}
+		var values = Object.keys(servers).map(function(key){return servers[key];});
+		chrome.tabs.query({}, (tabs) => tabs.forEach( tab => chrome.tabs.sendMessage(tab.id, "connectToServerBuffInspect_steam://connect/" + values[sid])));
+	});
+
+}
+
 chrome.storage.sync.get("serverIndex", function(serverIndex)
 {
+	var sid = 0;
 	if(serverIndex.serverIndex)
 	{
-		select.selectedIndex = serverIndex.serverIndex;
+		sid = serverIndex.serverIndex;
 	}
+	select.selectedIndex = sid;
+	var values = Object.keys(servers).map(function(key){return servers[key];});
+	setServer(values[sid]);
 });
 
 function updateServer()
 {
 	chrome.storage.sync.set({"serverIndex": select.selectedIndex});
+	var values = Object.keys(servers).map(function(key){return servers[key];});
+	setServer(values[select.selectedIndex]);
 }
 
 select.addEventListener('change', updateServer, false);
+document.getElementById("connect-button").addEventListener("click", connect);
