@@ -32,10 +32,11 @@ Nothing is stored in the database
 
 
 ## Installation
-Non Chinese
+Regular
 ```
 https://chrome.google.com/webstore/detail/buff-inspect/lebfbmmlnogdmgpkeademimobdndhkgm
 ```
+
 China
 ```
 Guide: https://gist.github.com/WillsJin/cf7a0904413c9823bd2e
