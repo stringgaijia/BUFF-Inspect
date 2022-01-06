@@ -39,6 +39,21 @@
 	z-index: 8;
 }
 
+.reset_button
+{
+	color: #f2f2f2;
+	background-color: rgba(156,0,0,0.9);
+	border-radius: 3px;
+	font-size: 16px;
+	position: absolute;
+	border: none;
+	top: 1px;
+	right: 1px;
+	z-index: 13;
+	width: 22px;
+	height: 22px;
+}
+
 .sticker_wrapped #selected_background
 {
 	background-color: rgba(0,200,0,0.25);
@@ -79,7 +94,7 @@
 {
 	display: inline-block;
 	font-size: 12px;
-	width: auto;
+	width: 112px;
 	margin: 0px;
 	margin-top: 5px;
 	background-color: #fff;
@@ -102,6 +117,24 @@
 	margin-top: 5px;
 	border-radius: 2px;
 	margin-left: 3px;
+}
+
+.float_search_button
+{
+	padding: 3px;
+	font-size: 12px;
+	margin-top: 5px;
+	width: 95px;
+	height: 24px;
+	background-color: #4A4A4A;
+	color: #e7e6e5;
+	border: 1px solid #4A4A4A;
+}
+
+.float_search_button:hover
+{
+	transition: 0.4s;
+	color: #eea20e;
 }
 
 .move_sticker_button_wrapper
