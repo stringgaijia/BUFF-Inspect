@@ -1,9 +1,8 @@
-# BUFF Inspect V1.0.1
+# BUFF Inspect V1.0.2
 
 BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft before purchasing it, or for the everyday player that just wants to look at the weapon to see if its worth buying. It allows you to generate a gen-code for any weapon and/or gloves currently on the Buff163 marketplace which allows you to go on servers such as Broskin and view the weapon in-game.
 
 ## Known Issues
-- Connect to server isn't working. This will be fixed shortly.
 
 ## Planned Features
 - Reseting stickers to their original position
@@ -14,6 +13,7 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 - Generate gencodes for CSGO
 - Inspecting a weapon with stickers
 - Connect to servers to inspect weapons
+- Instantly search for an item on FloatDB
 
 ## How does it work?
 When the user generates a gen-code the extension send a request to our database (http://grioghyjtf.link/). The request includes the *name* of the weapon and if present, the *stickers* applied to the weapon. (The name of the item and stickers are encoded in base64)
@@ -32,6 +32,12 @@ Nothing is stored in the database
 
 
 ## Installation
+Non Chinese
 ```
+https://chrome.google.com/webstore/detail/buff-inspect/lebfbmmlnogdmgpkeademimobdndhkgm
+```
+China
+```
+Guide: https://gist.github.com/WillsJin/cf7a0904413c9823bd2e
 https://chrome.google.com/webstore/detail/buff-inspect/lebfbmmlnogdmgpkeademimobdndhkgm
 ```
