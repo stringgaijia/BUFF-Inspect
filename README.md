@@ -5,9 +5,6 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 ## Known Issues
 
 ## Planned Features
-- Reseting stickers to their original position
-- Change wearvalue on stickers
-- Add/remove stickers from weapon
 - Adding/Removing servers
 
 ## Features
