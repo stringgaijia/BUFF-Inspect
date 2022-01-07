@@ -1,5 +1,21 @@
 # Change Log
 All notable changes to this project will be documented in this file.
+
+## [1.0.3] - 2022-01-07 - Major Update
+
+### Added
+- Users can now apply any sticker on any weapon
+- Users can reset the stickers to their original positions
+- Users can change the floatvalue of any sticker
+
+### Changed
+- Stickersimage-urls are now stored locally (faster loading)
+
+### Fixed
+- Floatvalues on stickers update correctly
+- Stability fixes
+- Fixed huNter- | Stockholm 2021 not showing correctly
+ 
  
 ## [1.0.2] - 2022-01-06
 
@@ -12,9 +28,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Connect button not working
-- Connect sometimes connected to the wrong server
+- Connect sometimes connected to the incorrect server
 - Fixed "Don't Worry, I'm Pro" sticker
-- Minor bug fixes
 
  
 ## [1.0.1] - 2022-01-04
