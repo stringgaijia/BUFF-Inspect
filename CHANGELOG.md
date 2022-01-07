@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.0.3] - 2022-01-07 - Major Update
+## [1.1.0] - 2022-01-07 - Major Update
 
 ### Added
 - Users can now apply any sticker on any weapon
