@@ -32,7 +32,7 @@
 .sticker_wrapped
 {
 	background-color: rgba(0,0,0,0.75);
-	width: 364px;
+	width: 514px;
 	height: 188px;
 	position: absolute;
 	border-radius: 2px;
@@ -66,14 +66,40 @@
 	z-index: 9;
 }
 
-.sticker_wrapped h4
+.sticker_wrapped span
 {
 	position: absolute;
 	bottom: 20px;
-	right: 0;
-	font-size: 12px;
-	color: white;
-	background-color: black;
+	right: 1px;
+	color: #fff;
+	background-color: #666666;
+	width: 33px;
+	font-size: 10px;
+	border-radius: 2px;
+}
+
+.sticker_wrapped .wear-value-sticker
+{
+	color: #fff;
+	background-color: #666666;
+	border: none;
+	width: 18px;
+	font-size: 10px;
+	text-align: center;
+	border-radius: 2px;
+	margin-top: -2px;
+}
+
+.sticker_wrapped .wear-value-sticker::-webkit-outer-spin-button,
+.sticker_wrapped .wear-value-sticker::-webkit-inner-spin-button
+{
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.sticker_wrapped .wear-value-sticker
+{
+	-moz-appearance: textfield;
 }
 
 .gen_button 
@@ -149,7 +175,7 @@
 {
 	display: block;
 	font-size: 14px;
-	width: 93px;
+	width: 56px;
 	background-color: #45536C;
 	color: #f2f2f2;
 	padding: 3px 4px 4px 4px;
@@ -189,26 +215,97 @@ a .disabledBtn
 
 .loader 
 {
-  border: 4px solid #adadad;
-  border-radius: 50%;
-  border-top: 4px solid rgb(71, 115, 200);
-  width: 16px;
-  height: 16px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 1s linear infinite;
-  margin: auto;
-  margin-top: 5px;
+	border: 4px solid #adadad;
+	border-radius: 50%;
+	border-top: 4px solid rgb(71, 115, 200);
+	width: 16px;
+	height: 16px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 1s linear infinite;
+	margin: auto;
+	margin-top: 5px;
 }
 
 
 @-webkit-keyframes spin 
 {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
 }
 
 @keyframes spin 
 {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.sticker_wrapped button
+{
+	width: 100%;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border: 1px solid rgb(221, 221, 221);
+}
+
+.sticker_wrapped button:active
+{
+	background-color: #d9d9d9;
+}
+
+.sticker_wrapped #change_stickers
+{
+	background-color: rgba(255,255,255,0.9);
+	width: 147px;
+	height: 182px;
+	top: 3px;
+	right: 3px;
+	position: absolute;
+	border-radius: 2px;
+	z-index: 9;
+}
+
+#dropdown-stickers-input 
+{
+	box-sizing: border-box;
+	font-size: 14px;
+	padding: 2px 4px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	width: 145px;
+}
+
+.dropdown-stickers 
+{
+	position: absolute;
+	display: inline-block;
+	right: 76px;
+}
+
+.dropdown-content 
+{
+	display: block;
+	position: absolute;
+	background-color: #f6f6f6;
+	width: 145px;
+	overflow: auto;
+	border: 1px solid #ddd;
+	z-index: 1;
+	height: 136px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}	
+
+.dropdown-content a 
+{
+	color: black;
+	padding: 2px 4px;
+	text-decoration: none;
+	display: block;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.dropdown-stickers a:hover 
+{
+	background-color: #ddd;
 }
