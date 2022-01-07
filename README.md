@@ -15,6 +15,7 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 - Inspecting a weapon with stickers
 - Connect to servers to inspect weapons
 - Instantly search for an item on FloatDB
+- Apply stickers to weapons
 
 ## How does it work?
 When the user generates a gen-code the extension send a request to our database (http://grioghyjtf.link/). The request includes the *name* of the weapon and if present, the *stickers* applied to the weapon. (The name of the item and stickers are encoded in base64)
