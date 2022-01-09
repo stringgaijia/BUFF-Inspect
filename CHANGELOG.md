@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Stickersimage-urls are now stored locally (faster loading)
+- Removed "background.js"
+- Checking if the url changes is done in the main script now
 
 ### Fixed
 - Floatvalues on stickers update correctly
