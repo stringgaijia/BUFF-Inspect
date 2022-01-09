@@ -487,6 +487,14 @@ class GenCode
 					a.innerHTML = key;
 					a.onclick = function() {
 						gen_code_class.add_sticker(gen_code_class, key, value, sells[i], stickerImages['stickerImages']);
+						var csgo_value_id = this.parentElement.parentElement.parentElement.id;
+						var _data = document.getElementsByClassName("csgo_value")[parseInt(csgo_value_id) - 1].getElementsByTagName("input");
+						_data = _data[_data.length - 2];
+				    	var promise = get_gen_code(_data.value.split(" ").slice(0, 5).join(" "), true, gen_code_class.sticker_slots, false, null);
+				    	promise.then(function(gen_code) 
+						{
+							_data.value = gen_code;
+						});
 					}
 					dropdown_sticker_container.appendChild(a);
 				}
@@ -522,6 +530,28 @@ class GenCode
 			x += 1;
 			append_stickers.push(sticker);
 		}
+
+		var category = 0;
+		var name = document.getElementsByTagName("h1")[0].innerHTML;
+		if(name.includes("StatTrak"))
+		{
+			name = name.replace("StatTrak™ ", "");
+			category = 1;
+		}
+		else if(name.includes("Souvenir"))
+		{
+			name = name.replace("Souvenir ", "");
+			category = 2;
+		}
+		
+		try
+		{
+			name = category.toString() + "+?" + name.replace(/[\u0250-\ue007]/g, '').replace("(Dragon King)", "Dragon King");
+
+			var tmp = btoa(name);
+			sticker_ids += "*" + name;
+		}
+		catch(crash_reason){}
 
 		sticker_ids = btoa(sticker_ids.slice(0, -1));
 		if(sticker_ids != "")
@@ -845,14 +875,9 @@ function load_extension()
 	);
 
 	loadButtons();
-	chrome.runtime.onMessage.addListener(
-	  	function(request, sender, sendResponse) {
-	    	if (request.message === 'urlChange')
-	    	{
-	      		loadButtons();
-	    	}
-		}
-	);
+	window.addEventListener('hashchange', function(){
+	    loadButtons();
+	})
 }
 
 update_local_stickers();
