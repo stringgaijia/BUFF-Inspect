@@ -6,6 +6,7 @@ BUFF Inspect is a chrome extension for CSGO traders that want to inspect a craft
 - When resetting stickers, the wearvalue defaults to 100
 - R8 Revolver and G3SG1 only has 4 sticker positions
 - Adding sticker dosen't update gen-code (Moving any sticker solves it)
+- Connect button dosen't work once again
 
 ## Planned Features
 - Adding/Removing servers
