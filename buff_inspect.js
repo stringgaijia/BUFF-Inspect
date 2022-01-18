@@ -168,6 +168,17 @@ function disable_all_move_stickers(state)
 	}
 }
 
+function set_language(lang)
+{
+	if(lang == "en")
+	{
+		document.cookie = "Locale-Supported=en;path=/";
+	}
+	else if(lang == "zh-Hans")
+	{
+		document.cookie = "Locale-Supported=zh-Hans;path=/";
+	}
+}
 
 class GenCode
 {
@@ -343,10 +354,21 @@ class GenCode
 
 	async load_gen(input, gen_code_class)
 	{
+		var reset_l = false;
+
 		var sells = document.getElementsByClassName("selling");
 		var i = input.id.split("-")[2];
 		var order = sells[i].getElementsByClassName("pic-cont item-detail-img")[0];
+		if(document.getElementsByClassName("icon icon_lang_zh-Hans").length == 2)
+		{
+			set_language("en");
+			reset_l = true;
+		}
 		var data = await http_get(order.getAttribute("data-classid"), order.getAttribute("data-instanceid"), order.getAttribute("data-orderid"), order.getAttribute("data-assetid"));
+		if(reset_l)
+		{
+			set_language("zh-Hans");
+		}
 		var gen_data = await gen_code_class.get_data(data, sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0], gen_code_class);
 		var change_stickers = sells[i].getElementsByClassName("t_Left")[0].getElementsByClassName("csgo_value")[0].getElementsByClassName("sticker_wrapped")[0].getElementsByTagName("div")[0];
 
@@ -862,18 +884,6 @@ function update_local_stickers()
 
 function load_extension()
 {
-	chrome.runtime.onMessage.addListener(
-	  	function(request, sender, sendResponse) {
-	    	if(request.includes("connectToServerBuffInspect_steam://connect/"))
-	    	{
-	    		if(request.split("_").length == 2)
-	    		{
-	    			window.location.href = request.split("_")[1];
-	    		}
-	    	}
-		}
-	);
-
 	loadButtons();
 	window.addEventListener('hashchange', function(){
 	    loadButtons();
