@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2022-01-18
+
+### Fixed
+- Chinese version of Buff now works
+- Connect button works
+
+
 ## [1.1.0] - 2022-01-07 - Major Update
 
 ### Added
