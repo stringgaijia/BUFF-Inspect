@@ -1,113 +1,119 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Test Title</title>
-	<style type="text/css">
-		button 
-		{
-			display: inline-block;
-			font-size: 14px;
-			width: 68px;
-			background-color: rgb(71, 115, 200);
-			color: rgb(242, 242, 242);
-			margin-top: 5px;
-		    margin-left: 3px;
-		    border-width: 1px;
-		    border-style: solid;
-		    border-color: rgb(71, 115, 200);
-		    border-image: initial;
-		    padding: 4px;
-		    border-radius: 2px;
-		    appearance: auto;
-		    user-select: none;
-		    white-space: pre;
-		    align-items: flex-start;
-		    text-align: center;
-		    box-sizing: border-box;
-		    margin-left: 41px;
-		}
+	<head>
+		<meta charset="utf-8">
+		<title>Test Title</title>
+		<style type="text/css">
+			body {
+				height: 120px;
+			}
 
-		button:hover
-		{
-			cursor: pointer;
-		}
+			#connect-button {
+				display: inline-block;
+				font-size: 14px;
+				width: 68px;
+				background-color: rgb(71, 115, 200);
+				color: rgb(242, 242, 242);
+				margin-top: 5px;
+				margin-left: 3px;
+				border-width: 1px;
+				border-style: solid;
+				border-color: rgb(71, 115, 200);
+				border-image: initial;
+				padding: 4px;
+				border-radius: 2px;
+				appearance: auto;
+				user-select: none;
+				white-space: pre;
+				align-items: flex-start;
+				text-align: center;
+				box-sizing: border-box;
+				margin-left: 41px;
+				text-decoration: none;
+				height: 30px;
+			}
 
-		select 
-		{
-			width: 150px;
-		}
+			#connect-button:hover {
+				cursor: pointer;
+			}
 
-		h3
-		{
-			color: #24292f;
-			border-bottom: solid 1px #999;
-			margin-bottom: 5px;
-		}
+			select {
+				width: 150px;
+			}
 
-		.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
+			h3 {
+				color: #24292f;
+				border-bottom: solid 1px #999;
+				margin-bottom: 5px;
+			}
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
-}
+			.dropbtn {
+				background-color: #04AA6D;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
 
-#myInput {
-  box-sizing: border-box;
-  background-image: url('searchicon.png');
-  background-position: 14px 12px;
-  background-repeat: no-repeat;
-  font-size: 16px;
-  padding: 14px 20px 12px 45px;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
+			.dropbtn:hover,
+			.dropbtn:focus {
+				background-color: #3e8e41;
+			}
 
-#myInput:focus {outline: 3px solid #ddd;}
+			#myInput {
+				box-sizing: border-box;
+				background-image: url('searchicon.png');
+				background-position: 14px 12px;
+				background-repeat: no-repeat;
+				font-size: 16px;
+				padding: 14px 20px 12px 45px;
+				border: none;
+				border-bottom: 1px solid #ddd;
+			}
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+			#myInput:focus {
+				outline: 3px solid #ddd;
+			}
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  min-width: 230px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f6f6f6;
+				min-width: 230px;
+				overflow: auto;
+				border: 1px solid #ddd;
+				z-index: 1;
+			}
 
-.dropdown a:hover {background-color: #ddd;}
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
 
-.show {display: block;}
-	</style>
+			.dropdown a:hover {
+				background-color: #ddd;
+			}
 
-</head>
-<body>
-	<h3 for="server-select">Server List</h3>
-	<select name="server-ips" id="server-select"></select>
-	<div style="text-align: center;width:100%">
-		<p id="ip-text" style="margin:5px"></p>
-	</div>
-	<button id="connect-button">Connect</button>
-
-<script src="popup.js"></script>
-
-</body>
+			.show {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h3 for="server-select">Server List</h3>
+		<select name="server-ips" id="server-select"></select>
+		<div style="text-align: center;width:100%">
+			<p id="ip-text" style="margin:5px"></p>
+		</div>
+		<a id="connect-button" target="_blank">Connect </button>
+			<script src="popup.js"></script>
+	</body>
 </html>
