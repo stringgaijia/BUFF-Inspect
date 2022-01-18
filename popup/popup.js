@@ -18,24 +18,10 @@ function setServer(serverIp)
 {
 	var ipText = document.getElementById("ip-text");
 	ipText.innerHTML = serverIp;
+	document.getElementById("connect-button").href = "steam://connect/" + serverIp;
 }
 
-function connect()
-{
-	var sid = 0;
-	chrome.storage.sync.get("serverIndex", function(serverIndex)
-	{
-		if(serverIndex.serverIndex)
-		{
-			sid = serverIndex.serverIndex;
-		}
-		var values = Object.keys(servers).map(function(key){return servers[key];});
-		chrome.tabs.query({}, (tabs) => tabs.forEach( tab => chrome.tabs.sendMessage(tab.id, "connectToServerBuffInspect_steam://connect/" + values[sid])));
-	});
-
-}
-
-chrome.storage.sync.get("serverIndex", function(serverIndex)
+chrome.storage.local.get("serverIndex", function(serverIndex)
 {
 	var sid = 0;
 	if(serverIndex.serverIndex)
@@ -49,10 +35,9 @@ chrome.storage.sync.get("serverIndex", function(serverIndex)
 
 function updateServer()
 {
-	chrome.storage.sync.set({"serverIndex": select.selectedIndex});
+	chrome.storage.local.set({"serverIndex": select.selectedIndex});
 	var values = Object.keys(servers).map(function(key){return servers[key];});
 	setServer(values[select.selectedIndex]);
 }
 
 select.addEventListener('change', updateServer, false);
-document.getElementById("connect-button").addEventListener("click", connect);
