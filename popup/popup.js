@@ -1,7 +1,8 @@
 var servers = {
 	"Broskin": "51.75.73.121:27015",
-	"ohnePixel Nuke": "23.88.121.140:27015",
-	"ohnePixel Siege": "23.88.37.66:27015"
+	"ohnePixel Nuke": "168.119.91.32:27017",
+	"ohnePixel Lake": "168.119.91.32:27016",
+	"ohnePixel Siege": "168.119.91.32:27015"
 }
 
 var select = document.getElementById("server-select");
