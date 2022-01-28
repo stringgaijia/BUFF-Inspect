@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2022-01-28
+
+### Fixed
+- Servers ips are now correct
+- Changed reset-button color
+
+
 ## [1.1.1] - 2022-01-18
 
 ### Fixed
